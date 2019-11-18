@@ -1,0 +1,13 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Each subdirectory must supply rules for building sources it contributes
+easylink/%.obj: ../easylink/%.c $(GEN_OPTS) | $(GEN_FILES) $(GEN_MISC_FILES)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: ARM Compiler'
+	"/home/popi/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="/home/popi/code/workspace_v9/rfEasyLinkEchoRx_CC1352R1_LAUNCHXL_nortos_ccs" --include_path="/home/popi/code/workspace_v9/rfEasyLinkEchoRx_CC1352R1_LAUNCHXL_nortos_ccs/Debug" --include_path="/home/popi/ti/simplelink_cc13x2_26x2_sdk_3_30_00_03/source" --include_path="/home/popi/ti/simplelink_cc13x2_26x2_sdk_3_30_00_03/kernel/nortos" --include_path="/home/popi/ti/simplelink_cc13x2_26x2_sdk_3_30_00_03/kernel/nortos/posix" --include_path="/home/popi/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS/include" --define=DeviceFamily_CC13X2 -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="easylink/$(basename $(<F)).d_raw" --include_path="/home/popi/code/workspace_v9/rfEasyLinkEchoRx_CC1352R1_LAUNCHXL_nortos_ccs/Debug/syscfg" --obj_directory="easylink" $(GEN_OPTS__FLAG) "$(shell echo $<)"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
+

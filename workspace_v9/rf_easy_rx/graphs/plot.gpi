@@ -1,0 +1,33 @@
+set encoding utf8
+set terminal svg size 1400, 800 enhanced linewidth 2 background "white" font "Times, 28"
+
+if (!exists("filename")) filename='output'
+set output filename.'.svg'
+
+set boxwidth 0.9
+#set style fill solid 1.00 border 0
+set style histogram errorbars linewidth 2 gap 1
+set style data histograms
+set style fill solid 0.3
+set bars 0.6 front
+set xtics rotate by -45
+#set linetype 1 lc rgb "#0060ad"
+#set linetype 2 lc rgb "##AE4E00"
+#set linetype 3 lc rgb "#0060ad"
+#set linetype 4 lc rgb "##AE4E00"
+
+set label 1 "Time" at screen 0.50, 0.02 font "Times,30"
+set bmargin 3
+
+set yrange [0:*]
+set grid ytics
+
+#set multiplot layout 1,1 title "Temp" font "Times,34"
+set yrange [10:40]
+set ytics 2 font "Times, 28"
+set ylabel font "Times, 30" "Temperature (°C)"
+set title font "Times, 34" "E-BIRDHOUSE"
+plot "temperature.dat" using 2:2:2:xticlabels(1) lc rgb '#B22222' notitle, \
+     "temperature.dat" using 3:3:3:xticlabels(1) lc rgb '#2222B2' notitle
+unset multiplot
+#plot "temperature.dat" using 3:3:3:xticlabels(1) lc rgb '#B66666' notitle

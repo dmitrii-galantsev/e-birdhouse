@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Proprietary RF Quick Start Guide &mdash; 
+SimpleLink™ CC13x2 / CC26x2 SDK
+Proprietary RF User&#39;s Guide
+ 2.70.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="
+SimpleLink™ CC13x2 / CC26x2 SDK
+Proprietary RF User&#39;s Guide
+ 2.70.0 documentation" href="../index.html"/>
+        <link rel="next" title="SimpleLink Wireless MCU CC13x2 or CC26x2 Overview" href="index-platform-cc13x2_26x2.html"/>
+        <link rel="prev" title="Proprietary RF User’s Guide" href="index-cc13x2_26x2.html"/>
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug proprietary-rf-guide quickstart-cc13x2_26x2";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script>
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index-cc13x2_26x2.html" class="icon icon-home"> 
+SimpleLink™ CC13x2 / CC26x2 SDK
+Proprietary RF User's Guide
+
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.70.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Proprietary RF Quick Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics">0. Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-the-sdk">1. Get the SimpleLink CC13x2 / 26x2 SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bookmark-the-sdk-documentation-overview">2. Bookmark the SDK Documentation Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#try-out-the-sdk-example-projects">3. Try out the SDK Example Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#follow-the-simplelink-academy-trainings">4. Follow the SimpleLink Academy Trainings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#read-the-users-guides">5. Read the User’s Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#watch-the-kernel-workshop-videos">6. Watch the Kernel Workshop Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#look-into-the-api-references">7. Look into the API References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#consult-the-technical-reference-manual">8. Consult the Technical Reference Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ask-for-support-on-e2e">9. Ask for support on E2E</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index-platform-cc13x2_26x2.html">SimpleLink Wireless MCU CC13x2 or CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-cc13x2_26x2.html">Examples User’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-hardware.html">Custom hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tirtos-index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nortos-index.html">noRTOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf-core-index.html">RF Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proprietary-rf-index-cc13x2_26x2.html">Proprietary Physical Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="easylink-index.html">EasyLink Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory-index.html">Memory overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proprietary-rf-oad-index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sysconfig-index.html">System Configuration Tool (SysConfig)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration-cc13x2_26x2.html">Migration Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-cc13x2_26x2.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary-cc13x2_26x2.html">Terms and acronyms</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index-cc13x2_26x2.html">
+SimpleLink™ CC13x2 / CC26x2 SDK
+Proprietary RF User's Guide
+</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index-cc13x2_26x2.html">Docs</a> &raquo;</li>
+      
+    <li>Proprietary RF Quick Start Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="proprietary-rf-quick-start-guide">
+<h1>Proprietary RF Quick Start Guide<a class="headerlink" href="#proprietary-rf-quick-start-guide" title="Permalink to this headline">¶</a></h1>
+<p>This short tutorial gets you started with the <a class="reference external" href="http://www.ti.com/tool/simplelink-cc13x2-26x2-sdk">SimpleLink CC13x2 / 26x2 SDK</a> eco system.</p>
+<div class="section" id="basics">
+<h2>0. Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<p>The CC13x2 combines a flexible, very lowpower RF transceiver with a powerful 48-MHz Arm® Cortex®
+-M4F microcontroller in a platform supporting multiple physical layers and RF standards. A dedicated Radio Controller (Cortex®
+-M0) handles low-level RF protocol commands that are stored in ROM or RAM. To be able to provide low power and high functionallity,
+power domains and modules on the chip have to be turned on and of in a correct sequence. Using the TI provided drives achieves this.
+It is also recommended that CC13x2 runs a OS to schedule access to the peripherals on the chip.
+TI provides the following in the SDK:</p>
+<blockquote>
+<div><ul class="simple">
+<li>TI-RTOS <a class="reference internal" href="tirtos-index.html#sec-tirtos-overview"><span class="std std-ref">TI-RTOS (RTOS Kernel) Overview</span></a></li>
+<li>noRTOS  <a class="reference internal" href="nortos-index.html#sec-nortos-overview"><span class="std std-ref">noRTOS Overview</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-sdk">
+<h2>1. Get the <a class="reference external" href="http://www.ti.com/tool/simplelink-cc13x2-26x2-sdk">SimpleLink CC13x2 / 26x2 SDK</a><a class="headerlink" href="#get-the-sdk" title="Permalink to this headline">¶</a></h2>
+<p>It is recommended to download the <a class="reference external" href="http://www.ti.com/tool/simplelink-cc13x2-26x2-sdk">SimpleLink CC13x2 / 26x2 SDK</a> via the resource explorer in <a class="reference internal" href="glossary-cc13x2_26x2.html#term-ccs"><span class="xref std std-term">CCS</span></a>.</p>
+<blockquote>
+<div><div class="figure align-center" id="id3">
+<img alt="../_images/ccs-sdk-download.png" src="../_images/ccs-sdk-download.png" />
+<p class="caption"><span class="caption-number">Figure 1. </span><span class="caption-text">The resource explorer in CCS.</span></p>
+</div>
+</div></blockquote>
+<p>Or alternatively, download the <a class="reference external" href="http://www.ti.com/tool/simplelink-cc13x2-26x2-sdk">SimpleLink CC13x2 / 26x2 SDK</a> manually from the <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC13X2-26X2-SDK">TI website</a>.</p>
+<p>The <a class="reference external" href="http://www.ti.com/tool/simplelink-cc13x2-26x2-sdk">SimpleLink CC13x2 / 26x2 SDK</a> contains:</p>
+<ul class="simple">
+<li><strong>Libraries</strong><ul>
+<li>TI-RTOS kernel (previously named SYS/BIOS)</li>
+<li>TI-Drivers (high-level hardware abstraction)</li>
+<li>DriverLib (low-level hardware abstraction, previously named CC13xxWare)</li>
+<li>TI 15.4 Stack</li>
+<li>TI BLE-Stack for CC1352.</li>
+</ul>
+</li>
+<li><strong>Resources</strong><ul>
+<li>Example projects for the TI-RTOS kernel  and TI-Drivers</li>
+<li>User guides</li>
+<li>API references</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="bookmark-the-sdk-documentation-overview">
+<h2>2. Bookmark the SDK Documentation Overview<a class="headerlink" href="#bookmark-the-sdk-documentation-overview" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="../../../Documentation_Overview.html">documentation overview page</a>
+is the entry point for all SDK-related documentation and it is highly recommended to
+bookmark it in the browser.</p>
+<ol class="arabic simple">
+<li>Go to <a class="reference external" href="http://dev.ti.com/tirex/">http://dev.ti.com/tirex/</a></li>
+<li>Software <code class="docutils literal notranslate"><span class="pre">--&gt;</span></code> <a class="reference external" href="http://www.ti.com/tool/simplelink-cc13x2-26x2-sdk">SimpleLink CC13x2 / 26x2 SDK</a> <code class="docutils literal notranslate"><span class="pre">--&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">Documentation</span> <span class="pre">Links</span></code></li>
+</ol>
+<blockquote>
+<div><div class="figure align-center" id="id4">
+<img alt="../_images/tirex-documentation-overview.png" src="../_images/tirex-documentation-overview.png" />
+<p class="caption"><span class="caption-number">Figure 2. </span><span class="caption-text">The SDK documentation overview page on the TI Resource explorer.</span></p>
+</div>
+</div></blockquote>
+<p>It is also available offline in the Resource Explorer of CCS.</p>
+</div>
+<div class="section" id="try-out-the-sdk-example-projects">
+<h2>3. Try out the SDK Example Projects<a class="headerlink" href="#try-out-the-sdk-example-projects" title="Permalink to this headline">¶</a></h2>
+<p>The CC13xx MCU SDK contains a set of proprietary RF examples for creating a
+Proprietary RF Protocol with CC13xx. The examples show how to use peripherals
+such as GPIO, UART, LCD, etc., in conjunction with the RF Driver, as well as
+demonstrating best practice use of TIRTOS Features such as Tasks, Semaphores,
+Events and HWI callbacks. All examples are written to use CC13xx in an optimal
+way out of the box. The TI-RTOS software framework and RF driver ensure that
+the device enters optimal power mode at any given point in time. All the RF
+examples have support for the CCS and IAR IDE.</p>
+<blockquote>
+<div><div class="figure align-center" id="id5">
+<img alt="../_images/trex-examples.png" src="../_images/trex-examples.png" />
+<p class="caption"><span class="caption-number">Figure 3. </span><span class="caption-text">CCS Resoure Explorer Examples</span></p>
+</div>
+</div></blockquote>
+<p>For more information about the different Proprietary RF examples provided, see
+the <a class="reference internal" href="examples-cc13x2_26x2.html"><span class="doc">Examples User’s Guide</span></a>.</p>
+</div>
+<div class="section" id="follow-the-simplelink-academy-trainings">
+<h2>4. Follow the SimpleLink Academy Trainings<a class="headerlink" href="#follow-the-simplelink-academy-trainings" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://dev.ti.com/tirex/#/?link=Software%2FSimpleLink%20CC13x2%2026x2%20SDK%2FSimpleLink%20Academy%2FOverview">SimpleLink Academy</a> contains multiple tutorials for all SimpleLink devices, but
+also the CC13x2 family.</p>
+<blockquote>
+<div><div class="figure align-center" id="id6">
+<img alt="../_images/simplelink-academy.png" src="../_images/simplelink-academy.png" />
+<p class="caption"><span class="caption-number">Figure 4. </span><span class="caption-text">SimpleLink Academy.</span></p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="read-the-users-guides">
+<h2>5. Read the User’s Guides<a class="headerlink" href="#read-the-users-guides" title="Permalink to this headline">¶</a></h2>
+<p>All software concepts are explained there. You will find all user’s guides
+mentioned on the documentation overview page of the SDK:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../tirtos/sysbios/docs/Bios_User_Guide.pdf">TI-RTOS Kernel User Guide</a></li>
+<li><a class="reference internal" href="index-cc13x2_26x2.html"><span class="doc">Proprietary RF user’s guide</span></a></li>
+<li><a class="reference external" href="../../../tidrivers/Power_Management.pdf">Power Management user’s guide</a></li>
+<li><a class="reference external" href="../../../tirtos/uia/docs/spruh43f.pdf">Instrumentation user’s guide</a></li>
+</ul>
+</div>
+<div class="section" id="watch-the-kernel-workshop-videos">
+<h2>6. Watch the Kernel Workshop Videos<a class="headerlink" href="#watch-the-kernel-workshop-videos" title="Permalink to this headline">¶</a></h2>
+<p>If you have never used TI-RTOS before, these <a class="reference external" href="https://training.ti.com/ti-rtos-workshop-series">online video workshops</a> give you a fast start.</p>
+<p><a class="reference external" href="https://training.ti.com/ti-rtos-workshop-series"><img alt="tirtos-online-videos" src="../_images/tirtos-online-videos.jpg" /></a></p>
+</div>
+<div class="section" id="look-into-the-api-references">
+<h2>7. Look into the API References<a class="headerlink" href="#look-into-the-api-references" title="Permalink to this headline">¶</a></h2>
+<p>The API references explain details about all functions and types in the SDK.
+They can be reached from the documentation overview page of the SDK:</p>
+<ul class="simple">
+<li><a class="reference external" href="../../../tirtos/sysbios/docs/Bios_APIs.html">TI-RTOS Kernel API Reference</a></li>
+<li><a class="reference external" href="../../../tidrivers/tidriversAPIs.html">TI-Drivers API reference</a></li>
+<li><a class="reference external" href="../../../driverlib_cc13xx_cc26xx/doc_overview_driverlib_cc13xx_cc26xx.html">DriverLib API reference</a></li>
+</ul>
+</div>
+<div class="section" id="consult-the-technical-reference-manual">
+<h2>8. Consult the Technical Reference Manual<a class="headerlink" href="#consult-the-technical-reference-manual" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://www.ti.com/lit/pdf/swcu185">CC13x2 CC26x2 SimpleLink Wireless MCU Technical Reference Manual</a> describes the CC13x2 family in more detail. It is helpful when
+extending and writing TI Drivers.</p>
+</div>
+<div class="section" id="ask-for-support-on-e2e">
+<h2>9. Ask for support on E2E<a class="headerlink" href="#ask-for-support-on-e2e" title="Permalink to this headline">¶</a></h2>
+<p>Search for similar questions on E2E : <a class="reference external" href="https://e2e.ti.com/support/">https://e2e.ti.com/support/</a></p>
+<p><strong>When asking a question:</strong></p>
+<ul class="simple">
+<li>Compress information: Do not write essays, but be precise.</li>
+<li>Describe: What do you want? What did you try? What is the error?</li>
+<li>Essential facts: What SDK version are you using? What device and board? What
+example project is your project based on?</li>
+</ul>
+<p><strong>When contacting TI customer support:</strong></p>
+<ul class="simple">
+<li>Isolate the problem first.</li>
+<li>Provide a minimal working example application.</li>
+<li>This saves time for you and us and will lead to better response times.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="index-platform-cc13x2_26x2.html" class="btn btn-neutral float-right" title="SimpleLink Wireless MCU CC13x2 or CC26x2 Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index-cc13x2_26x2.html" class="btn btn-neutral" title="Proprietary RF User’s Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2019, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.70.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

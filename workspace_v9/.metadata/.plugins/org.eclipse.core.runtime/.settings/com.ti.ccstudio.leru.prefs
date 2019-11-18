@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+state_.org.eclipse.debug.ui.ExpressionView=<?xml version\="1.0" encoding\="UTF-8"?>\n<View>\n<PERSISTABLE IMemento.internal.id\="VarPersitable"/>\n<PERSISTABLE IMemento.internal.id\="ExpandReveal">\n<Model>\n<Element Flags\="33554432" Id\="data"/>\n<Element Flags\="33554432" Id\="transaction">\n<Element Flags\="1048576" Id\="(transaction).readBuf"/>\n</Element>\n<Element Flags\="1048576" Id\="rxBuffer"/>\n<Element Flags\="33554432" Id\="txBuffer"/>\n</Model>\n</PERSISTABLE>\n</View>
