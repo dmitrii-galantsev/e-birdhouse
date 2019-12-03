@@ -42,6 +42,7 @@
 #include <ti/drivers/rf/RF.h>
 #include <ti/drivers/PIN.h>
 #include <ti/drivers/Power.h>
+#include <ti/drivers/UART.h>
 
 #include <ti/devices/DeviceFamily.h>
 #include DeviceFamily_constructPath(driverlib/interrupt.h)
@@ -54,6 +55,7 @@
 
 /* EasyLink API Header files */
 #include "easylink/EasyLink.h"
+
 
 /* Undefine to not use async mode */
 #define RFEASYLINKECHO_ASYNC
@@ -77,6 +79,9 @@ PIN_Config pinTable[] = {
 static volatile bool bEchoDoneFlag;
 
 static bool bBlockTransmit = false;
+
+static UART_Handle uart;
+static uint8_t buffer[8] = "start\r\n";
 
     /*
      * +---+-------------------------------------------+
@@ -119,6 +124,21 @@ void echoRxDoneCb(EasyLink_RxPacket * rxPacket, EasyLink_Status status)
         /* Toggle RLED to indicate RX, clear GLED */
         PIN_setOutputValue(pinHandle, CONFIG_PIN_RLED, rxPacket->payload[2]); // turn on green LED when motion detected
         PIN_setOutputValue(pinHandle, CONFIG_PIN_GLED,!PIN_getOutputValue(CONFIG_PIN_GLED));
+        /* Print data over uart */
+        int temp = (int) rxPacket->payload[3];
+        int hum  = (int) rxPacket->payload[5];
+        buffer[0] = (temp / 10 % 10) + 48;
+        buffer[1] = (temp % 10) + 48;
+        buffer[2] = ',';
+        buffer[3] = (hum / 10 % 10) + 48;
+        buffer[4] = (hum % 10) + 48;
+        buffer[5] = '\n';
+        buffer[6] = '\r';
+        buffer[7] = '\r';
+
+
+//        sscanf(buffer, "%d\r\n", hum);
+//        UART_write(uart, buffer, 8);
         /* Copy contents of RX packet to TX packet */
         memcpy(&txPacket.payload, rxPacket->payload, rxPacket->len);
         /* Permit echo transmission */
@@ -159,6 +179,31 @@ void *mainThread(void *arg0)
     EasyLink_Params easyLink_params;
     EasyLink_Params_init(&easyLink_params);
 
+
+    // One-time initialization of UART driver
+    UART_init();
+
+    // Initialize UART parameters
+    UART_Params params;
+    UART_Params_init(&params);
+    params.baudRate = 9600;
+    params.readMode = UART_MODE_BLOCKING;
+    params.writeMode = UART_MODE_BLOCKING;
+    params.readTimeout = UART_WAIT_FOREVER;
+    params.writeTimeout = UART_WAIT_FOREVER;
+
+    // Open the UART
+    uart = UART_open(CONFIG_UART, &params);
+
+    // Read from the UART
+    int32_t readCount;
+//    readCount = UART_read(uart, buffer, 8);
+
+    // Write to the UART
+    UART_write(uart, buffer, 8);
+
+    // Close the UART
+
     /*
      * Initialize EasyLink with the settings found in ti_easylink_config.h
      * Modify EASYLINK_PARAM_CONFIG in ti_easylink_config.h to change the default
@@ -182,6 +227,7 @@ void *mainThread(void *arg0)
 
         // Wait to receive a packet
         EasyLink_receiveAsync(echoRxDoneCb, 0);
+        UART_write(uart, buffer, 8);
 
         /* Wait indefinitely for Rx */
         while(bEchoDoneFlag == false){

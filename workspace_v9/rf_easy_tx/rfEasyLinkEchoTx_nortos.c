@@ -253,11 +253,7 @@ void *mainThread(void *arg0)
     uint16_t humidity;
 
     /* Open LED pins */
-    pinHandle = PIN_open(&pinState, pinTable);
-    if (pinHandle == NULL)
-    {
-        while(1);
-    }
+    while ((pinHandle = PIN_open(&pinState, pinTable)) == NULL);
 
     /* Clear LED pins */
     PIN_setOutputValue(pinHandle, CONFIG_PIN_GLED, 0);
@@ -267,11 +263,7 @@ void *mainThread(void *arg0)
     I2C_init();
     I2C_Params_init(&i2cParams);
     i2cParams.bitRate = I2C_400kHz;
-    i2c = I2C_open(CONFIG_I2C_TMP, &i2cParams);
-    if (i2c == NULL) {
-        /* Error Initializing I2C */
-        while (1);
-    }
+    while ((i2c = I2C_open(CONFIG_I2C_TMP, &i2cParams)) == NULL);
 
     i2cTransaction.writeBuf   = txBuffer;
     i2cTransaction.writeCount = 2;
@@ -282,22 +274,8 @@ void *mainThread(void *arg0)
      * Determine which I2C sensor is present.
      */
 
-    // get board id LSB
-    txBuffer[0] = 0xFA;
-    txBuffer[1] = 0x0F;
     i2cTransaction.slaveAddress = SI7021_ADDRESS;
-    if (!I2C_transfer(i2c, &i2cTransaction)) {
-        /* Could not resolve a sensor, error */
-        while(1);
-    }
 
-    // get board id MSB
-    txBuffer[0] = 0xFC;
-    txBuffer[1] = 0xC9;
-    if (!I2C_transfer(i2c, &i2cTransaction)) {
-        /* Could not resolve a sensor, error */
-        while(1);
-    }
 
     // set write length to 1 byte
     i2cTransaction.writeCount = 1;
@@ -318,10 +296,9 @@ void *mainThread(void *arg0)
     params.mode           = GPT_MODE_ONESHOT;
     params.direction      = GPTimerCC26XX_DIRECTION_UP;
     params.debugStallMode = GPTimerCC26XX_DEBUG_STALL_OFF;
-    hTimer = GPTimerCC26XX_open(CONFIG_TIMER_0, &params);
-    if(hTimer == NULL)
+    while ((hTimer = GPTimerCC26XX_open(CONFIG_TIMER_0, &params)) == NULL)
     {
-        while(1);
+        sleep(1);
     }
 
     /* Set Timeout value to 500ms */
@@ -344,8 +321,8 @@ void *mainThread(void *arg0)
      * Modify EASYLINK_PARAM_CONFIG in ti_easylink_config.h to change the default
      * PHY
      */
-    if (EasyLink_init(&easyLink_params) != EasyLink_Status_Success){
-        while(1);
+    while (EasyLink_init(&easyLink_params) != EasyLink_Status_Success){
+        sleep(1);
     }
 
     /*

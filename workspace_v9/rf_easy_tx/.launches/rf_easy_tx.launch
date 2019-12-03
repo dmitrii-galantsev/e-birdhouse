@@ -4,7 +4,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.CC1352R1F3.ccxml.Texas Instruments XDS110 USB Debug Probe/Cortex_M4_0" value="${build_artifact:rf_easy_tx}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.CC1352R1F3.ccxml.Texas Instruments XDS110 USB Debug Probe/Cortex_M4_0" value="rf_easy_tx"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:rf_easy_tx}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.CC1352R1F3.ccxml.Texas Instruments XDS110 USB Debug Probe/Cortex_M4_0" value="/home/popi/code/workspace_v9/rf_easy_tx/Debug/rf_easy_tx.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.CC1352R1F3.ccxml.Texas Instruments XDS110 USB Debug Probe/Cortex_M4_0" value="/home/popi/local/research/e-birdhouse/workspace_v9/rf_easy_tx/Debug/rf_easy_tx.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/rf_easy_tx"/>
 </listAttribute>
