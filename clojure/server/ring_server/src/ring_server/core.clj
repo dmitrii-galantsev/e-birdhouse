@@ -1,21 +1,31 @@
 (ns ring-server.core
-  (:require [ring.adapter.jetty :as jetty])
+  (:require [ring.adapter.jetty :as jetty]
+            [ring.util.request :as req])
   (:gen-class))
 
-(def requests_map {:get  "GET"
-                   :post "POST"})
+(defn post_handler [request]
+  (str "POST \nquery:"
+       (request :query-string)
+       " \nbody:"
+       (req/body-string request)))
 
+; there has to be a better way to write this
+; maps request-method to a handler function
+(def handler_map {:get  #(str "GET "  %)
+                  :post #(post_handler %)})
+
+; returns a function which handles the request
 (defn match_requests [request-method]
-  (def k (requests_map request-method))
+  (def k (handler_map request-method))
   (if (nil? k) ; if method isn't matched -> show unknown message
-    "REQUEST-METHOD: UNKNOWN"
+    #(str "REQUEST-METHOD: UNKNOWN" (% :query-string))
     k))
-
 
 (defn handler [request]
   {:status 200
    :headers {"Content-Type" "text/html"}
-   :body (match_requests (:request-method request))})
+   ; get and execute the handler function
+   :body ((match_requests (:request-method request)) request)})
 
 (defn -main
   [& args]
