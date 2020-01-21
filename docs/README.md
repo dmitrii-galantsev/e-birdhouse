@@ -28,7 +28,7 @@ Humidity+temp:
 - Battery for solar:      TBA
 ```
 
-[ti]: https://github.com/dmitrii-galantsev/e-birdhouse/tree/master/docs/ti.jpg "Sensor collector + rf transciever"
-[rpi]: https://github.com/dmitrii-galantsev/e-birdhouse/tree/master/docs/rpi.jpeg "Data uploader"
-[si7021]: https://github.com/dmitrii-galantsev/e-birdhouse/tree/master/docs/si7021.jpeg "Luminosity sensor"
-[tl2561]: https://github.com/dmitrii-galantsev/e-birdhouse/tree/master/docs/tl2561.jpeg "Temperature + humidity sensor"
+[ti]: ./ti.jpg?raw=true "Sensor collector + rf transciever"
+[rpi]: ./rpi.jpeg?raw=true "Data uploader"
+[si7021]: ./si7021.jpeg?raw=true "Luminosity sensor"
+[tl2561]: ./tl2561.jpeg?raw=true "Temperature + humidity sensor"
