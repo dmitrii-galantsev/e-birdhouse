@@ -2,6 +2,8 @@
 TI RF Birdhouse
 contact: dmitriigalantsev AT gmail.com
 
+[Additional docs](https://github.com/dmitrii-galantsev/e-birdhouse/tree/master/docs/README.md)
+
 folder structure
 ```
 .
