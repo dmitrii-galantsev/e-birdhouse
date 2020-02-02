@@ -1,4 +1,4 @@
-Database info:
+# Database info
 
 PostgreSQL database is used for the project.
 
@@ -14,4 +14,4 @@ CREATE TABLE dev (
     mov   int);
 ```
 
-Don't forget to expose the database to public network
+Don't forget to expose the database to public network.

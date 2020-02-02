@@ -24,15 +24,19 @@ More info [here][database]
 ```
 
 TI:
+
 ![][ti]
 
 RPi:
+
 ![][rpi]
 
 Luminosity:
+
 ![][si7021]
 
 Humidity+temp:
+
 ![][tl2561]
 
 [ti]: ./ti.jpg?raw=true "Sensor collector + rf transciever"
