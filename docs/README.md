@@ -13,6 +13,12 @@ PostgreSQL 10
 
 More info [here][database]
 
+# Visualization
+
+[Google Data Studio](https://datastudio.google.com/navigation/reporting)
+
+More info [here][visualization]
+
 # Potential additions
 
 ```
@@ -45,3 +51,4 @@ Humidity+temp:
 [tl2561]: ./tl2561.jpeg?raw=true "Temperature + humidity sensor"
 
 [database]: ./DATABASE.md
+[visualization]: ./VISUALIZATION.md
