@@ -1,36 +1,31 @@
 # ring_server
 
-FIXME: description
-
 ## Installation
 
-Download from http://example.com/FIXME.
+Install [Clojure](https://clojure.org/guides/getting_started) and [Leinigen](https://leiningen.org/)
 
 ## Usage
 
-FIXME: explanation
+Run using leiningen:
+    
+    $ lein run
 
-    $ java -jar ring_server-0.1.0-standalone.jar [args]
+Compile a standalone jar file (staticly links everything and packs in a jar):
+
+    $ lein uberjar
+
+Execute standalone jar file:
+
+    $ java -jar ./target/uberjar/ring_server-0.1.0-SNAPSHOT-standalone.jar
 
 ## Options
 
-FIXME: listing of options this app accepts.
+By default the server is started on port 3000. Modify the source to change it.
+
+TODO: Database login
 
 ## Examples
-
-...
 
 ### Bugs
 
 ...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2019 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.

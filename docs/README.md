@@ -6,6 +6,23 @@
 - Humidity+temp sensor:   SparkFun Si7021
 - Raspberry Pi:           TBA
 ```
+
+# Database
+
+PostgreSQL 10
+
+More info [here][database]
+
+# Potential additions
+
+```
+- Current sensor:         Zio Qwiic Current Sensor
+- Motion sensor:          SparkFun OpenPIR
+- Solar controller:       SparkFun Sunny Buddy
+- Solar panel:            TBA
+- Battery for solar:      TBA
+```
+
 TI:
 ![][ti]
 
@@ -18,17 +35,9 @@ Luminosity:
 Humidity+temp:
 ![][tl2561]
 
-# Potential additions
-
-```
-- Current sensor:         Zio Qwiic Current Sensor
-- Motion sensor:          SparkFun OpenPIR
-- Solar controller:       SparkFun Sunny Buddy
-- Solar panel:            TBA
-- Battery for solar:      TBA
-```
-
 [ti]: ./ti.jpg?raw=true "Sensor collector + rf transciever"
 [rpi]: ./rpi.jpeg?raw=true "Data uploader"
 [si7021]: ./si7021.jpeg?raw=true "Luminosity sensor"
 [tl2561]: ./tl2561.jpeg?raw=true "Temperature + humidity sensor"
+
+[database]: ./DATABASE.md
