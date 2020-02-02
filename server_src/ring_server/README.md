@@ -1,5 +1,11 @@
 # ring_server
 
+NOTICE:
+
+This is meant to be ran locally on the machine with the database.
+
+Storing database username and password in plaintext is dangerous!
+
 ## Installation
 
 Install [Clojure](https://clojure.org/guides/getting_started) and [Leinigen](https://leiningen.org/)
@@ -22,7 +28,7 @@ Execute standalone jar file:
 
 By default the server is started on port 3000. Modify the source to change it.
 
-TODO: Database login
+TODO: Add database info
 
 ## Examples
 

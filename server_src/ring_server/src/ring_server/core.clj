@@ -1,7 +1,13 @@
 (ns ring-server.core
   (:require [ring.adapter.jetty :as jetty]
-            [ring.util.request :as req])
+            [ring.util.request :as req]
+            [clj-postgresql.core :as pg]
+            [clojure.java.jdbc :as jdbc])
   (:gen-class))
+
+;
+; RESTful processor
+;
 
 (defn post_handler [request]
   (str "POST \nquery:"
@@ -26,6 +32,30 @@
    :headers {"Content-Type" "text/html"}
    ; get and execute the handler function
    :body ((match_requests (:request-method request)) request)})
+
+;
+; PostgreSQL processor
+;
+
+; define DB connection
+(def db
+  (pg/pool :host "popi.tech" :user "bird" :dbname "bird" :password "bird"))
+
+; check if data type is a vector of 4 digits
+(defn insert_type_check [values]
+  (and
+    (= (type values) clojure.lang.PersistentVector)
+    (= (count values) 4)))
+
+; insert data into the DB. doesn't return anything
+; TODO: fix the INSERT query
+(defn db_insert [values]
+  (if (insert_type_check (values))
+    (jdbc/query db ["INSERT INTO dev VALUES ?::int[] AS arr" [10, 45, 45, 1]])))
+
+;
+; Main
+;
 
 (defn -main
   [& args]
