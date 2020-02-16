@@ -47,11 +47,15 @@
     (= (type values) clojure.lang.PersistentVector)
     (= (count values) 4)))
 
+; convert vector into postgresql row
+(defn vec_to_row [vec]
+  (def k (apply str (map #(str % ", ") vec)))
+  (str "(" (subs k 0 (- (count k) 2)) ")"))
+
 ; insert data into the DB. doesn't return anything
-; TODO: fix the INSERT query
 (defn db_insert [values]
-  (if (insert_type_check (values))
-    (jdbc/query db ["INSERT INTO dev VALUES ?::int[] AS arr" [10, 45, 45, 1]])))
+  (if (insert_type_check values)
+    (jdbc/query db (str "INSERT INTO dev VALUES " (vec_to_row values)))))
 
 ;
 ; Main
