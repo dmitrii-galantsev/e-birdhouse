@@ -29,6 +29,10 @@ More info [here][visualization]
 - Battery for solar:      TBA
 ```
 
+Connectivity diagram:
+
+![][connectivity_diagram]
+
 TI:
 
 ![][ti]
@@ -49,6 +53,8 @@ Humidity+temp:
 [rpi]: ./rpi.jpeg?raw=true "Data uploader"
 [si7021]: ./si7021.jpeg?raw=true "Luminosity sensor"
 [tl2561]: ./tl2561.jpeg?raw=true "Temperature + humidity sensor"
+
+[connectivity_diagram]: ./connectivity_diagram.png?raw=true "Connectivity diagram"
 
 [database]: ./DATABASE.md
 [visualization]: ./VISUALIZATION.md
