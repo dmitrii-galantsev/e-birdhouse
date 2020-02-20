@@ -12,14 +12,20 @@ folder structure
 ├── README.md               - this readme file
 ├── docs                    - documentation
 ├── rpi_src                 - raspberry pi
-│   └── serial_read             - serial reader WIP
+│   └── serial_read             - serial reader
 ├── server_src              - remote data server
 │   └── ring_server             - POST receiver and DB manager
 └── ti_src                  - ti board files
     ├── bird_motion_detector
     ├── i2c_temp_humidity
-    ├── rf_easy_rx              - reciever
+    ├── rf_easy_rx              - receiver
     └── rf_easy_tx              - sender
 
 
 ```
+
+Connectivity diagram:
+
+![][connectivity_diagram]
+
+[connectivity_diagram]: ./docs/connectivity_diagram.png?raw=true "Connectivity diagram"
