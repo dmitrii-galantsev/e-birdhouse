@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 import serial, requests, time
 
-#SERIAL_LOCATION = '/dev/ttyACM0'
-SERIAL_LOCATION = '/dev/pts/3'
+SERIAL_LOCATION = '/dev/ttyACM0'
+#SERIAL_LOCATION = '/dev/pts/3'
 
-#SERVER_ADDRESS = 'http://popi.tech:3000/'
-SERVER_ADDRESS = 'http://127.0.0.1:3000/'
+SERVER_ADDRESS = 'http://popi.tech:3000/'
+#SERVER_ADDRESS = 'http://127.0.0.1:3000/'
 
 tty = None
 line = None

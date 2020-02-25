@@ -18,7 +18,7 @@
 
 ; define DB connection
 (def db
-  (pg/pool :host "popi.tech" :user "bird" :dbname "bird" :password "bird"))
+  (pg/pool :host "localhost" :user "bird" :dbname "bird" :password "bird"))
 
 ; check if data type is a vector of 4 digits
 (defn insert_type_check [values]
