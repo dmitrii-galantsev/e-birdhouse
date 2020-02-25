@@ -1,37 +1,16 @@
 (ns ring-server.core
   (:require [ring.adapter.jetty :as jetty]
             [ring.util.request :as req]
+            [ring.util.response :as resp]
             [clj-postgresql.core :as pg]
             [clojure.java.jdbc :as jdbc])
   (:gen-class))
 
-;
-; RESTful processor
-;
+(use 'ring.middleware.params)
 
-(defn post_handler [request]
-  (str "POST \nquery:"
-       (request :query-string)
-       " \nbody:"
-       (req/body-string request)))
-
-; there has to be a better way to write this
-; maps request-method to a handler function
-(def handler_map {:get  #(str "GET "  %)
-                  :post #(post_handler %)})
-
-; returns a function which handles the request
-(defn match_requests [request-method]
-  (def k (handler_map request-method))
-  (if (nil? k) ; if method isn't matched -> show unknown message
-    #(str "REQUEST-METHOD: UNKNOWN" (% :query-string))
-    k))
-
-(defn handler [request]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   ; get and execute the handler function
-   :body ((match_requests (:request-method request)) request)})
+; TODO add timestamp
+; define temporary day
+(def day 0)
 
 ;
 ; PostgreSQL processor
@@ -56,6 +35,42 @@
 (defn db_insert [values]
   (if (insert_type_check values)
     (jdbc/query db (str "INSERT INTO dev VALUES " (vec_to_row values)))))
+
+;
+; RESTful processor
+;
+; TODO: this will return an error because postgresDB doesn't respond.
+; it will still work.
+(defn post_handler [request]
+  (let [my_params ((params-request request) :params)]
+    (def day (inc day))
+    (db_insert [(str day) (my_params "temp") (my_params "hum") "0"])
+    (str "POST \nquery:"
+         my_params
+         " \nbody:"
+         (req/body-string request))))
+
+
+; there has to be a better way to write this
+; maps request-method to a handler function
+(def handler_map {:get  #(str "GET "  %)
+                  :post #(post_handler %)})
+
+
+; returns a function which handles the request
+(defn match_requests [request-method]
+  (let [func (handler_map request-method)]
+    (if (nil? func) ; if method isn't matched -> show unknown message
+      #(str "REQUEST-METHOD: UNKNOWN" (% :query-string))
+      func)))
+
+; get and execute the handler function
+(defn handler [request]
+  (-> (resp/response ((match_requests (:request-method request)) request))
+      (resp/content-type "text/plain")))
+
+;  (-> (resp/response ((match_requests (:request-method request)) request))
+;      (resp/content-type "text/plain")))
 
 ;
 ; Main
