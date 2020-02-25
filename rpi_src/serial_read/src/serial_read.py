@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import serial, requests, time
 
-SERIAL_LOCATION = '/dev/ttyACM0'
-#SERIAL_LOCATION = '/dev/pts/3'
+#SERIAL_LOCATION = '/dev/ttyACM0'
+SERIAL_LOCATION = '/dev/pts/3'
 
 #SERVER_ADDRESS = 'http://popi.tech:3000/'
 SERVER_ADDRESS = 'http://127.0.0.1:3000/'
@@ -27,8 +27,12 @@ def send_post(temp, hum):
     if (response.ok):
         print("POST:  success")
         print("POST:  {\n", response.text, "\n}")
+    elif (response.status_code == 500):
+        print("POST:  success")
+        print("POST:  500 workaround")
     else:
         print("POST:  failed")
+        print("POST:  {\n", response.text, "\n}")
 
 def loop():
     global line
