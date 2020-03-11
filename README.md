@@ -24,6 +24,21 @@ folder structure
 
 ```
 
+Battery tests:
+```
+2020/03/07
+    Somewhat sunny day today. Battery been charging from solar at my window all
+    day without the board connected.
+    Just connected now at 7:00 PM. Logging temp+hum every 10 min.
+    Was pulling 2mA in idle with programmer connected. Just disconnected
+    programmer 30 min into experiment. Hopefully it pulls less now.
+
+    Results:
+    day  0: 00 hr 30 min - no problem, took off programmer jumpers off the eval board.
+    day  0: 01 hr 30 min - no problem
+    day  3: 11 hr 30 min - no problem, no drops in data, still going strong!
+```
+
 Connectivity diagram:
 
 ![][connectivity_diagram]
