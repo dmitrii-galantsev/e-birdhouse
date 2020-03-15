@@ -34,9 +34,15 @@ Battery tests:
     programmer 30 min into experiment. Hopefully it pulls less now.
 
     Results:
-    day  0: 00 hr 30 min - no problem, took off programmer jumpers off the eval board.
+    day  0: 00 hr 30 min - no problem, took off programmer jumpers off the eval
+            board.
     day  0: 01 hr 30 min - no problem
     day  3: 11 hr 30 min - no problem, no drops in data, still going strong!
+
+2020/03/15
+    day  7: 21 hr 10 min - no problem, log count accurate. Finish testing.
+            System logged for almost 8 days without errors. All during rainy
+            weather. 
 ```
 
 Connectivity diagram:
